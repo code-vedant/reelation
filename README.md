@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reelation
 
-## Getting Started
+Reelation is a short-video-sharing platform where users can upload and view reels, similar to Instagram Reels or YouTube Shorts.
 
-First, run the development server:
+## Tech Stack
+- **Next.js** - React framework for server-side rendering and static site generation.
+- **DaisyUI** - Tailwind CSS component library for styling.
+- **Lucide Icons** - Modern icons for UI elements.
+- **ImageKit** - Image CDN and optimization.
+- **MongoDB** - NoSQL database for storing user data and video details.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- Upload short videos.
+- Watch and interact with reels.
+- Responsive UI with Tailwind & DaisyUI.
+- Fast media delivery using ImageKit.
+- Database management with MongoDB.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/reelation.git
+   cd reelation
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Create a `.env` file and add the required environment variables:
+   ```sh
+   NEXT_PUBLIC_IMAGEKIT_URL=your_imagekit_url
+   MONGODB_URI=your_mongodb_connection_string
+   ```
+4. Run the development server:
+   ```sh
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
+Feel free to fork the project and open pull requests!
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+This project is licensed under the MIT License.

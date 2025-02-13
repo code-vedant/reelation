@@ -2,7 +2,7 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { connectToDatabase } from "./db";
 import User from "@/models/User";
-import bcryptjs from "bcryptjs";
+import argon2 from "argon2";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -25,10 +25,7 @@ export const authOptions: NextAuthOptions = {
             throw new Error("No user found");
           }
 
-          const isValid = await bcryptjs.compare(
-            credentials.password,
-            user.password
-          );
+          const isValid = await argon2.verify(user.password, credentials.password);
 
           if (!isValid) {
             throw new Error("Invalid Password");
@@ -39,7 +36,6 @@ export const authOptions: NextAuthOptions = {
             email: user.email,
           };
         } catch (error) {
-          console.error("Error in authorize function", error);
           return null;
         }
       },
@@ -50,14 +46,12 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         token.id = user.id;
       }
-
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
       }
-
       return session;
     },
   },
